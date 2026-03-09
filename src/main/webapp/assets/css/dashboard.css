@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app-shell {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 290px;
+    background: #111827;
+    border-right: 1px solid #1f2937;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.brand-text h2 {
+    font-size: 22px;
+    color: white;
+}
+
+.brand-text p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.new-chat-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #6366f1;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.new-chat-btn:hover {
+    background: #5558e6;
+}
+
+.usage-box {
+    margin-bottom: 18px;
+    padding: 12px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.sidebar-section {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.sidebar-heading {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-item {
+    display: block;
+    background: #1f2937;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: #dbeafe;
+    border: 1px solid transparent;
+}
+
+.history-item:hover {
+    background: #273449;
+}
+
+.history-item.active {
+    background: #312e81;
+    border-color: #6366f1;
+}
+
+.history-title {
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-empty {
+    background: #1f2937;
+    padding: 12px;
+    border-radius: 10px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.main-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.topbar {
+    height: 72px;
+    border-bottom: 1px solid #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    background: #0f172a;
+}
+
+.topbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #334155;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    top: 56px;
+    width: 220px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 12px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.user-email {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.logout-link {
+    display: block;
+    color: #f87171;
+    background: #0f172a;
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+.logout-link:hover {
+    background: #172033;
+}
+
+.chat-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px;
+    scroll-behavior: smooth;
+}
+
+.alert-box {
+    max-width: 950px;
+    margin: 0 auto 18px;
+    background: #3b0d0d;
+    border: 1px solid #7f1d1d;
+    color: #fecaca;
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+
+.welcome-section {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.welcome-icon {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 18px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+}
+
+.welcome-section h1 {
+    font-size: 34px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    color: #94a3b8;
+    margin-bottom: 28px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.prompt-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.prompt-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: #e2e8f0;
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+}
+
+.prompt-card:hover {
+    background: #273449;
+    transform: translateY(-2px);
+}
+
+.messages-container {
+    max-width: 950px;
+    margin: 0 auto;
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.message-row {
+    display: flex;
+    width: 100%;
+}
+
+.user-row {
+    justify-content: flex-end;
+}
+
+.ai-row {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 76%;
+    padding: 16px 18px;
+    border-radius: 18px;
+    line-height: 1.7;
+    font-size: 15px;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.user-bubble {
+    background: #4f46e5;
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.ai-bubble {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    border-bottom-left-radius: 6px;
+}
+
+.inline-code {
+    font-family: Consolas, monospace;
+    background: #0f172a;
+    color: #c4b5fd;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 13px;
+}
+
+.code-block {
+    background: #0b1120;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 14px;
+    margin: 10px 0;
+    overflow-x: auto;
+    line-height: 1.6;
+}
+
+.code-block code {
+    font-family: Consolas, monospace;
+    white-space: pre;
+    font-size: 13px;
+    display: block;
+}
+
+.loader-bubble {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    width: 70px;
+    justify-content: center;
+}
+
+.loader-bubble span {
+    width: 8px;
+    height: 8px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    animation: blink 1.3s infinite ease-in-out;
+}
+
+.loader-bubble span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-bubble span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 80%, 100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.input-section {
+    border-top: 1px solid #1f2937;
+    padding: 18px 28px 24px;
+    background: #0f172a;
+}
+
+.prompt-form {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    gap: 12px;
+}
+
+.prompt-input {
+    flex: 1;
+    background: #1e293b;
+    color: white;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 15px;
+    outline: none;
+}
+
+.prompt-input::placeholder {
+    color: #94a3b8;
+}
+
+.send-btn {
+    border: none;
+    border-radius: 16px;
+    background: #6366f1;
+    color: white;
+    padding: 0 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.send-btn:hover {
+    background: #5558e6;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+
+    .prompt-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .message-bubble {
+        max-width: 92%;
+    }
+
+    .welcome-section h1 {
+        font-size: 28px;
+    }
+
+    .topbar-title {
+        max-width: 60%;
+    }
+}
